@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic-Tac-Toe</title>
+        <img id="hd" src="tttname.png">
+        <style>
+            #hd{
+                position: absolute;
+                height: 100px;
+                width: 500px;
+                left: 450px;
+            }
+            body{
+                background-color: #b1cb10;
+            }
+            #bx{
+                position: absolute;
+                height: 500px;
+                width: 490px;
+                background-color: aquamarine;
+                top: 150px;
+                left: 460px;
+            }
+            #t0{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                cursor: pointer;
+            }
+            #t1{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                left: 165px;
+                cursor: pointer;
+            }
+            #t2{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                left: 330px;
+                cursor: pointer;
+            }
+            #m0{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                top:170px;
+                cursor: pointer;
+            }
+            #m1{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                top:170px;
+                left:165px;
+                cursor: pointer;
+            }
+            #m2{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                top:170px;
+                left:330px;
+                cursor: pointer;
+            }
+            #b0{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                top:340px;
+                cursor: pointer;
+            }
+            #b1{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                top:340px;
+                left:165px;
+                cursor: pointer;
+            }
+            #b2{
+                position: absolute;
+                height: 165px;
+                width: 155px;
+                top:340px;
+                left:330px;
+                cursor: pointer;
+            }
+            #rs{
+                position: absolute;
+                top: 130px;
+                left: 225px;
+                height: 300px;
+            }
+            
+        </style>
+    </head>
+    <body id="bd">
+        <div id="bx">
+            <img id="t0" src="bk.png"> 
+            <img id="t1" src="bk.png"> 
+            <img id="t2" src="bk.png"> 
+            <img id="m0" src="bk.png">
+            <img id="m1" src="bk.png">
+            <img id="m2" src="bk.png"> 
+            <img id="b0" src="bk.png">
+            <img id="b1" src="bk.png">
+            <img id="b2" src="bk.png"> 
+        </div><br>
+        <div id="rs"></div>
+    </body>
+    <script>
+        let p1=1;
+        let p2=0;
+        let c;
+        let c0=0,c1=0,c2=0,c3=0,c4=0,c5=0,c6=0,c7=0,c8=0;
+        function change(){
+            if (p1){
+                c.src="x.png";
+                p1=0;
+                p2=1;
+                document.getElementById("bd").style.backgroundColor="#73b01a";
+            }
+            else{
+                c.src="o.png";
+                p1=1;
+                p2=0;
+                document.getElementById("bd").style.backgroundColor="#b1cb10";
+            }
+            if (c0){
+                c0++;
+                if (c0===8){
+                    document.getElementById("t0").src="bk.png";
+                    c0=0;
+                }
+            }
+            if (c1){
+                c1++;
+                if (c1===8){
+                    document.getElementById("t1").src="bk.png";
+                    c1=0;
+                }
+            }
+            if (c2){
+                c2++;
+                if (c2===8){
+                    document.getElementById("t2").src="bk.png";
+                    c2=0;
+                }
+            }
+            if (c3){
+                c3++;
+                if (c3===8){
+                    document.getElementById("m0").src="bk.png";
+                    c3=0;
+                }
+            }
+            if (c4){
+                c4++;
+                if (c4===8){
+                    document.getElementById("m1").src="bk.png";
+                    c4=0;
+                }
+            }
+            if (c5){
+                c5++;
+                if (c5===8){
+                    document.getElementById("m2").src="bk.png";
+                    c5=0;
+                }
+            }
+            if (c6){
+                c6++;
+                if (c6===8){
+                    document.getElementById("b0").src="bk.png";
+                    c6=0;
+                }
+            }
+            if (c7){
+                c7++;
+                if (c7===8){
+                    document.getElementById("b1").src="bk.png";
+                    c7=0;
+                }
+            }
+            if (c8){
+                c8++;
+                if (c8===8){
+                    document.getElementById("b2").src="bk.png";
+                    c8=0;
+                }
+            }
+            if (document.getElementById("t0").src.endsWith("x.png") && document.getElementById("t1").src.endsWith("x.png") && document.getElementById("t2").src.endsWith("x.png") ||
+                document.getElementById("m0").src.endsWith("x.png") && document.getElementById("m1").src.endsWith("x.png") && document.getElementById("m2").src.endsWith("x.png") ||
+                document.getElementById("b0").src.endsWith("x.png") && document.getElementById("b1").src.endsWith("x.png") && document.getElementById("b2").src.endsWith("x.png") ||
+                document.getElementById("t0").src.endsWith("x.png") && document.getElementById("m0").src.endsWith("x.png") && document.getElementById("b0").src.endsWith("x.png") ||
+                document.getElementById("t1").src.endsWith("x.png") && document.getElementById("m1").src.endsWith("x.png") && document.getElementById("b1").src.endsWith("x.png") ||
+                document.getElementById("t2").src.endsWith("x.png") && document.getElementById("m2").src.endsWith("x.png") && document.getElementById("b2").src.endsWith("x.png") ||
+                document.getElementById("t0").src.endsWith("x.png") && document.getElementById("m1").src.endsWith("x.png") && document.getElementById("b2").src.endsWith("x.png") ||
+                document.getElementById("t2").src.endsWith("x.png") && document.getElementById("m1").src.endsWith("x.png") && document.getElementById("b0").src.endsWith("x.png") 
+                ) {
+                    document.getElementById("rs").innerHTML=`<img id="rs" src="xwon.png" onclick=rp() style="cursor:pointer;">`;
+
+                    document.getElementById("t0").onclick=``;
+                    document.getElementById("t1").onclick=``;
+                    document.getElementById("t2").onclick=``;
+                    document.getElementById("m0").onclick=``;
+                    document.getElementById("m1").onclick=``;
+                    document.getElementById("m2").onclick=``;
+                    document.getElementById("b0").onclick=``;
+                    document.getElementById("b1").onclick=``;
+                    document.getElementById("b2").onclick=``;
+                }
+                if (document.getElementById("t0").src.endsWith("o.png") && document.getElementById("t1").src.endsWith("o.png") && document.getElementById("t2").src.endsWith("o.png") ||
+                document.getElementById("m0").src.endsWith("o.png") && document.getElementById("m1").src.endsWith("o.png") && document.getElementById("m2").src.endsWith("o.png") ||
+                document.getElementById("b0").src.endsWith("o.png") && document.getElementById("b1").src.endsWith("o.png") && document.getElementById("b2").src.endsWith("o.png") ||
+                document.getElementById("t0").src.endsWith("o.png") && document.getElementById("m0").src.endsWith("o.png") && document.getElementById("b0").src.endsWith("o.png") ||
+                document.getElementById("t1").src.endsWith("o.png") && document.getElementById("m1").src.endsWith("o.png") && document.getElementById("b1").src.endsWith("o.png") ||
+                document.getElementById("t2").src.endsWith("o.png") && document.getElementById("m2").src.endsWith("o.png") && document.getElementById("b2").src.endsWith("o.png") ||
+                document.getElementById("t0").src.endsWith("o.png") && document.getElementById("m1").src.endsWith("o.png") && document.getElementById("b2").src.endsWith("o.png") ||
+                document.getElementById("t2").src.endsWith("o.png") && document.getElementById("m1").src.endsWith("o.png") && document.getElementById("b0").src.endsWith("o.png") 
+                ) {
+                    document.getElementById("rs").innerHTML=`<img id="rs" src="owon.png" onclick=rp() style="cursor:pointer;">`;
+
+                    document.getElementById("t0").onclick=``;
+                    document.getElementById("t1").onclick=``;
+                    document.getElementById("t2").onclick=``;
+                    document.getElementById("m0").onclick=``;
+                    document.getElementById("m1").onclick=``;
+                    document.getElementById("m2").onclick=``;
+                    document.getElementById("b0").onclick=``;
+                    document.getElementById("b1").onclick=``;
+                    document.getElementById("b2").onclick=``;
+                }
+        }
+        function rp(){
+            location.reload();
+        }
+        function f0(){
+            c=document.getElementById("t0");
+            if (c0==0){
+                c0=1;
+                change()
+            }
+        }
+        function f1(){
+            c=document.getElementById("t1");
+            if (c1==0){
+                c1=1;
+                change()
+            }
+        }
+        function f2(){
+            c=document.getElementById("t2");
+            if (c2==0){
+                c2=1;
+                change()
+            }
+        }
+        function f3(){
+            c=document.getElementById("m0");
+            if (c3==0){
+                c3=1;
+                change()
+            }
+        }
+        function f4(){
+            c=document.getElementById("m1");
+            if (c4==0){
+                c4=1;
+                change()
+            }
+        }
+        function f5(){
+            c=document.getElementById("m2");
+            if (c5==0){
+                c5=1;
+                change()
+            }
+        }
+        function f6(){
+            c=document.getElementById("b0");
+            if (c6==0){
+                c6=1;
+                change()
+            }
+        }
+        function f7(){
+            c=document.getElementById("b1");
+            if (c7==0){
+                c7=1;
+                change()
+            }
+        }
+        function f8(){
+            c=document.getElementById("b2");
+            if (c8==0){
+                c8=1;
+                change()
+            }
+        }
+        document.getElementById("t0").onclick=f0;
+        document.getElementById("t1").onclick=f1;
+        document.getElementById("t2").onclick=f2;
+        document.getElementById("m0").onclick=f3;
+        document.getElementById("m1").onclick=f4;
+        document.getElementById("m2").onclick=f5;
+        document.getElementById("b0").onclick=f6;
+        document.getElementById("b1").onclick=f7;
+        document.getElementById("b2").onclick=f8;
+    </script>
+</html>
